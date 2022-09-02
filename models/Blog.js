@@ -22,20 +22,24 @@ Blog.init(
         comment: {
             type: DataTypes.STRING,
         },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+          },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: User,
                 key: 'id'
             },
-            unique: false,
         }
     },
     {
         sequelize: sequelize,
         timestamps: true,
         freezeTableName: true,
-        modelname: 'Blog'
+        modelName: 'blog'
     }
 );
 
