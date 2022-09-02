@@ -13,9 +13,9 @@
 <body>
 	{{!-- NAVBAR (consistent across all handlebar pages) --}}
 <div>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg custom-nav">
   	<a class="navbar-brand" href="/">
-  		<h2 class="text-main ">The Tech Blog</span></h2>
+  		<h2 class="text-main custom-head ">TTB</span></h2>
   	</a>
       <button 
         class="navbar-toggler " 
@@ -30,13 +30,13 @@
       <div class="flex-row-reverse collapse navbar-collapse " id="navbarNavAltMarkup">
         <div class="navbar-nav pr-5">
         {{#if logged_in}}
-        <a class="nav-item nav-link nav-color" href="/">Home</a>
-        <a class="nav-item nav-link nav-color" href="/workouts">Dashboard</a>
-        <a class="nav-item nav-link nav-color" href = "/" id="logout">Logout</a>
+        <a class="nav-item nav-link nav-color custom-link" href="/">Home</a>
+        <a class="nav-item nav-link nav-color custom-link" href="/dashboard">Dashboard</a>
+        <a class="nav-item nav-link nav-color custom-link" href = "/" id="logout">Logout</a>
         {{else}}
-        <a class="nav-item nav-link nav-color" href="/">Home</a>
-        <a class="nav-item nav-link nav-color" href="/login">Login</a>
-        <a class="nav-item nav-link nav-color" href="/login">Sign up</a>
+        <a class="nav-item nav-link nav-color custom-link" href="/">Home</a>
+        <a class="nav-item nav-link nav-color custom-link" href="/login">Login</a>
+        <a class="nav-item nav-link nav-color custom-link" href="/signup">Sign up</a>
         {{/if}}
         </div>
       </div>
