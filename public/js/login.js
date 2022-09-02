@@ -16,7 +16,7 @@ const loginFormHandler = async (event) => {
         if(response.ok){
             document.location.replace('/');
         } else {
-            console.log('Error statment was called')
+            console.log('Error statement was called')
         }
     }
 }

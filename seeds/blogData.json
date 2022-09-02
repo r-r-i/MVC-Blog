@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Node JS",
+        "content": "This challenge requires NodeJS",
+        "comment": "I think this challenge also requires MySQL",
+        "user_id": 1
+    },
+    {
+        "title": "Express Session",
+        "content": "This challenge uses the express session npm package",
+        "comment": "The express session npm package is very useful!",
+        "user_id": 2
+    },
+    {
+        "title": "bCrypt",
+        "content": "This challenge uses the npm package bCrypt to hash passwords",
+        "comment": "I like how my passwords are stored securely",
+        "user_id": 3
+    },
+    {
+        "title": "Handlebars",
+        "content": "This challenge renders pages from the back-end, using Handlebars",
+        "comment": "Handlebars is super useful!",
+        "user_id": 4
+    }
+]
