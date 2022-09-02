@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
         const users = userData.map((users) => users.get({ plain: true }));
 
-        res.render('homepage', {
+        res.render('dashboard', {
             users,
             logged_in: req.session.logged_in,
         });
@@ -24,10 +24,14 @@ router.get('/', async (req, res) => {
     }
 })
 
-// If already logged in, redirect to profile
+router.get('/signup', (req,res) => {
+    res.render('signup');
+})
+
+// If already logged in, redirect to dashboard
 router.get('/login',  (req, res) => {
     if (req.session.logged_in){
-        res.redirect('/profile');
+        res.redirect('/dashboard');
         return
     }
     res.render('login')
