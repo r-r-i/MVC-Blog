@@ -14,7 +14,23 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
+});
+
+router.get('/blog', async (req, res) => {
+    try {
+        const blogData = await Blog.findAll ({ include: User })
+
+        const blogs = blogData.map((blogs) => blogs.get({ plain: true }));
+        res.render('blog', {
+            blogs,
+            logged_in: req.session.logged_in,
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
 })
+
+
 
 router.get('/signup', (req,res) => {
     if (req.session.logged_in){

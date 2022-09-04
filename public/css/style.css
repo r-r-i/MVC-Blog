@@ -49,4 +49,29 @@ body {
     border: 1px solid #02a9f7;
     color: #89d6fb
 }
+.blog-card {
+    width: 25%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+.blog-container {
+    border:#02a9f7 1px solid;
+    border-radius: 9px;
+}
+.blog-header {
+    color:#89d6fb;
+    padding: 10px;
+}
+.blog-author, .blog-content, .blog-comment {
+    color:#89d6fb;
+}
+.blog-name {
+    font-size: 25px;
+}
+.blog-date {
+    font-size: 10px;
+    color:#89d6fb;
+}
+
 
