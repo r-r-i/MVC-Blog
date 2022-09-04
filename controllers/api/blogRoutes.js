@@ -25,8 +25,6 @@ router.get('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        // const blogID = req.params.id;
-        // const userID = req.params.user_id;
         const blogData = await Blog.destroy({
             where: {
                 id: req.params.id,
@@ -50,6 +48,24 @@ router.post('/', async (req, res) => {
         res.status(200).json(blogData)
     } catch (err){
         res.status(500).json(err);
+    }
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        const { id, title, content } = req.body;
+        const blog = await Blog.findByPk(req.params.id);
+        const blogData = await blog.update(
+            {
+                id: id,
+                title: title,
+                content: content
+            });
+
+            res.status(200).json(blogData)
+
+    } catch (err){
+        res.status(500).json(err)
     }
 });
 

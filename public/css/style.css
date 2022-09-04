@@ -95,4 +95,13 @@ a {
     font-size: 40px;
 }
 
+.update-form {
+    margin: auto;
+    padding-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
 

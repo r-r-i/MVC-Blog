@@ -1,3 +1,5 @@
+
+
 const newBlogSave = async (event) => {
     event.preventDefault();
 
@@ -39,6 +41,56 @@ const delButtonHandler = async (event) => {
         }
     }
 }
+const updateFormHandler = async (event) => {
+    event.preventDefault();
+    console.log('entered form')
+    const id = event.target.getAttribute('data-id');
+
+    if(event.target.hasAttribute('data-id')){
+        
+        const title = document.querySelector(`#blog-title${id}`).value.trim();
+        const content = document.querySelector(`#blog-content${id}`).value.trim();
+
+        console.log(id, title, content)
+
+        if(id && title && content){
+            const response = await fetch(`/api/blog/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({ id, title, content }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            if(response.ok) {
+                document.location.replace('/dashboard')
+            } else {
+                alert('failed to update blog post!')
+            };
+        }
+    }
+}
+
+const showUpdateForm = async (event) => {
+    event.preventDefault();
+
+    if(event.target.hasAttribute('data-id')){
+        
+        const id = event.target.getAttribute('data-id');
+
+        let updateForm = document.querySelector(`#update-form${id}`)
+        updateForm.classList.remove('hidden')
+    };
+    
+};
+
+
+
+$('#saveBtn')
+    .on('click', updateFormHandler);
+
+$('.blog-update')
+    .on('click', showUpdateForm);
 
 $('.blog-btn')
     .on('click', newBlogSave);
