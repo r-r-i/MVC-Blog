@@ -11,6 +11,11 @@ router.get('/:id', async (req, res) => {
                 }
             ]
         });
+
+        if(!blogData) {
+            res.status(500).json({ message: 'No blog found with this id'});
+            return;
+        }
         res.status(200).json(blogData)
     } catch (err) {
         console.log('error entered')

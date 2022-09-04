@@ -70,7 +70,7 @@ body {
     font-size: 25px;
 }
 .blog-date {
-    font-size: 10px;
+    font-size: 15px;
     color:#89d6fb;
 }
 .login-header {
@@ -79,6 +79,9 @@ body {
     text-align: center;
     color:#89d6fb;
     padding-top: 100px;
+}
+a {
+    text-decoration: none;
 }
 
 
