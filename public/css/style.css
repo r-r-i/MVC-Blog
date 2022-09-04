@@ -84,4 +84,15 @@ a {
     text-decoration: none;
 }
 
+.dashboard-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color:#89d6fb;
+}
+
+.dashboard-name {
+    font-size: 40px;
+}
+
 

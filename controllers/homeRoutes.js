@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const session = require('express-session');
 const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -57,12 +58,15 @@ router.get('/blog', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
+      console.log(req.session.user_id)
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
         include: [{ model: Blog }],
       });
 
       const user = userData.get({ plain: true });
+
+      console.log(user)
 
       res.render('dashboard', {
         ...user,
@@ -79,7 +83,16 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //     res.render('dashboard')
 // })
 
-
+// clear session on log out
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+})
 
 
 
