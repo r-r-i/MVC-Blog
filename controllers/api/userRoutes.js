@@ -29,11 +29,8 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: 'Incorrect username or password'})
             return;
         }
-
         console.log(userData)
-
         const user = userData.get({ plain: true });
-
         req.session.save(() => {
             req.session.user_id = user.id;
             req.session.logged_in = true;
@@ -43,10 +40,6 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 })
-
-// delete blog post
-
-
 // Clear session on log out
 router.post('/logout', (req, res) => {
     if (req.session.logged_in){

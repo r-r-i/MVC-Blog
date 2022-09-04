@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 });
-
 router.get('/blog/:id', async (req, res) => {
     try {
         const blogData = await Blog.findByPk(req.params.id, {
@@ -27,20 +26,16 @@ router.get('/blog/:id', async (req, res) => {
                 }
             ]
         });
-
         const blog = blogData.get({ plain: true });
-
         res.render('blog', {
             ...blog,
             logged_in: req.session.logged_in,
         })
-
     } catch (err) {
         console.log('error entered')
         res.status(400).json(err);
     }
 });
-
 router.get('/blog', async (req, res) => {
     try {
         const blogData = await Blog.findAll ({ include: User })
@@ -54,7 +49,7 @@ router.get('/blog', async (req, res) => {
         res.status(500).json(err)
     }
 });
-
+// route to user's dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
@@ -77,13 +72,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
 });
-
-// router.get('/dashboard', (req,res) => {
-    
-//     res.render('dashboard')
-// })
-
-// clear session on log out
+// destroy session on logout
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
@@ -93,9 +82,7 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 })
-
-
-
+// signup route
 router.get('/signup', (req,res) => {
     if (req.session.logged_in){
         res.redirect('/')
@@ -103,7 +90,6 @@ router.get('/signup', (req,res) => {
     }
     res.render('signup')
 })
-
 // If already logged in, redirect to dashboard
 router.get('/login',  (req, res) => {
     if (req.session.logged_in){
