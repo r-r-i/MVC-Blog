@@ -1,5 +1,3 @@
-
-
 const newBlogSave = async (event) => {
     event.preventDefault();
 
@@ -23,7 +21,6 @@ const newBlogSave = async (event) => {
     }
 
 };
-
 const delButtonHandler = async (event) => {
     if(event.target.hasAttribute('data-id')){
         console.log(event)
@@ -70,7 +67,6 @@ const updateFormHandler = async (event) => {
         }
     }
 }
-
 const showUpdateForm = async (event) => {
     event.preventDefault();
 
@@ -80,21 +76,20 @@ const showUpdateForm = async (event) => {
 
         let updateForm = document.querySelector(`#update-form${id}`)
         updateForm.classList.remove('hidden')
-    };
-    
+    }
 };
 
-
-
-$('#saveBtn')
-    .on('click', updateFormHandler);
+for (let index = 0; index < document.querySelectorAll('#saveBtn')
+.length; index++) {
+    const delButton = document.querySelectorAll('#saveBtn')[index];
+    delButton.addEventListener('click', updateFormHandler);
+};
 
 $('.blog-update')
     .on('click', showUpdateForm);
 
 $('.blog-btn')
     .on('click', newBlogSave);
-
 
 $('.blog-delete')
     .on('click', delButtonHandler);

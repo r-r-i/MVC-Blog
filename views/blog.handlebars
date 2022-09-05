@@ -18,18 +18,28 @@
     </div>
 </div>
 <div class="login-header">
+  <p>This post has {{comment.length}} comments</p>
+</div>
+{{#each comments as |comment|}}
+<div class="comment-card">
+  <h1 class="comment-head">{{comment.user.username}}</h1>
+  <p class="comment-content">{{comment.comment}}</p>
+  <p class="comment-date">{{comment.createdAt}}</p>
+</div>
+{{/each}}
+
+{{#if logged_in}}
+<div class="login-header">
   <h1>add a comment</h1>
 </div>
 <div>
-  <form class="login-form">
-  <div class="form-group">
-    <label class="custom-field">username</label>
-    <input id="blog-name" type="text" class="form-control" >
-  </div>
-  <div class="form-group">
-    <label class="custom-field">comment</label>
-    <input id="blog-comment" for="pass" type="text" class="form-control">
-  </div>
-  <button type="submit" class="btn btn-primary custom-btn comment-btn ">login</button>
+  <form id="comment-form{{blog.id}}" class="login-form">
+    <div class="form-group">
+      <label class="custom-field">comment</label>
+      <input id="blog-comment{{blog.id}}" for="pass" type="text" class="form-control">
+    </div>
+    <button type="submit" data-id="{{blog.id}}" id="commentBtn" class="btn btn-primary custom-btn">post</button>
 </form>
 </div>
+
+{{/if}}
