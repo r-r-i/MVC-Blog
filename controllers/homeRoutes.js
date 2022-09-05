@@ -78,16 +78,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
 });
-// destroy session on logout
-router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
-})
+
 // signup route
 router.get('/signup', (req,res) => {
     if (req.session.logged_in){

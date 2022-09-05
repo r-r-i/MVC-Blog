@@ -18,13 +18,13 @@
     </div>
 </div>
 <div class="login-header">
-  <p>This post has {{comment.length}} comments</p>
+  <p>This post has {{comments.length}} comments</p>
 </div>
 {{#each comments as |comment|}}
 <div class="comment-card">
   <h1 class="comment-head">{{comment.user.username}}</h1>
   <p class="comment-content">{{comment.comment}}</p>
-  <p class="comment-date">{{comment.createdAt}}</p>
+  <p class="comment-date">{{format_date comment.createdAt}}</p>
 </div>
 {{/each}}
 

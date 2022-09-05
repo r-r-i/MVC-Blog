@@ -104,7 +104,13 @@ a {
     display: none;
 }
 .comment-card {
-    
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color:#89d6fb;
+    padding: 50px;
 }
-
+.comment-head {
+    color:#02a9f7;
+}
 
