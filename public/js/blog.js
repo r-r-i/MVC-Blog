@@ -1,23 +1,29 @@
 const newCommentSave = async (event) => {
     event.preventDefault();
 
-    const comment = document.querySelector('#blog-comment').value.trim();
+    const blog_id = event.target.getAttribute('data-id');
 
-    console.log(title)
-    console.log(content)
+    if(event.target.hasAttribute('data-id')){
 
-    if(comment){
-        const response = await fetch('/api/comment', {
-            method: 'POST',
-            body: JSON.stringify({ comment }),
-            headers: { 'Content-Type': 'application/json' },
-        });
+        const comment = document.querySelector(`#blog-comment${blog_id}`).value.trim();
 
-        if(response.ok){
-            document.location.replace('/dashboard')
-        } else {
-            alert('something is wrong')
+        console.log(comment)
+
+        if(comment){
+            const response = await fetch('/api/comment', {
+                method: 'POST',
+                body: JSON.stringify({ blog_id, comment }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if(response.ok){
+                document.location.replace('/dashboard')
+            } else {
+                alert('something is wrong')
+            }
         }
     }
-
 };
+document
+    .querySelector('#commentBtn')
+    .addEventListener('click', newCommentSave);

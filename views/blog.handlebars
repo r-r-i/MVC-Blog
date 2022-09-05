@@ -36,10 +36,12 @@
   <form id="comment-form{{blog.id}}" class="login-form">
     <div class="form-group">
       <label class="custom-field">comment</label>
-      <input id="blog-comment{{blog.id}}" for="pass" type="text" class="form-control">
+      <input id="blog-comment{{id}}" data-type="{{blog.id}}" for="pass" type="text" class="form-control">
     </div>
-    <button type="submit" data-id="{{blog.id}}" id="commentBtn" class="btn btn-primary custom-btn">post</button>
+    <button type="submit" data-id="{{id}}" id="commentBtn" class="btn btn-primary custom-btn">post</button>
 </form>
 </div>
 
 {{/if}}
+
+<script src="/js/blog.js"></script>
