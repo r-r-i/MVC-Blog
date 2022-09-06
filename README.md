@@ -8,7 +8,7 @@ For this challenge, I was given the task of building the back and front end for 
 
 The following video shows the functionality of the application.
 
-- [demo](https://www.youtube.com/watch?v=Uv3oA4POK-Q)
+- [demo](https://youtu.be/5zHF7MmETv8)
 - deployed url: https://agile-bastion-55945.herokuapp.com/
 
 ## Installation Instructions
